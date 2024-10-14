@@ -17,9 +17,10 @@ let seekValidationPurposeGain = 0;
 let findBalancePercent = 0;
 let findBalancePurposeGain = 0;
 let findBalanceSliderSpeed = 10;
+let findBalanceValue = 0;
 //deepen resolve
 let deepenResolveCount = 0;
-let deepenResolvePrice = 50;
+let deepenResolvePrice = 1000;
 let deepenResolvePurposeGain = 0;
 let operationNr = 0;
 const delay = 50;
@@ -48,10 +49,8 @@ function gainPurpose(gain){
 
 //functions for find your balance minigame
 function findBalance(){
-    findBalancePercent = (25 - Math.abs(findYourBalanceSlider.value - 50)) * 4;
-    deepenResolvePurposeGain = findBalancePercent * (0,40 * deepenResolveCount);
-    purpose += totalPurposeGain * findBalancePercent;
-    purpose += totalPurposeGain * (findBalancePercent/100) * deepenResolvePurposeGain;
+    findBalancePercent = (25 - Math.abs(findYourBalanceSlider.value - 50)) * 0.05;
+    findBalanceValue += findBalancePercent * (deepenResolveCount * 0,4);
 }
 
 let invertVal = 1;
@@ -150,6 +149,8 @@ window.setInterval(function(){
     //seek validation purpose
     seekValidationPurposeGain = IdleReflectionPurposeGain * (seekValidationCount * 0.2);
     seekValidationPurposeGain = seekValidationPurposeGain + sharpenFocusPurposeGain * (seekValidationCount * 0.2);
+    //total seek balance purpose
+    findBalancePurposeGain = (IdleReflectionPurposeGain + sharpenFocusPurposeGain + seekValidationPurposeGain) * findBalanceValue;
     //total purpose
     totalPurposeGain = IdleReflectionPurposeGain + sharpenFocusPurposeGain + seekValidationPurposeGain + findBalancePurposeGain;
     purpose = purpose + totalPurposeGain;
@@ -159,8 +160,9 @@ window.setInterval(function(){
     document.getElementById("idleReflectionStatistics").innerHTML = Math.round(IdleReflectionPurposeGain / (delay/1000) * 100)/100;
     document.getElementById("sharpenFocusStatistics").innerHTML = Math.round(sharpenFocusPurposeGain / (delay/1000) * 100)/100;
     document.getElementById("seekValidationStatistics").innerHTML = Math.round(seekValidationPurposeGain / (delay/1000) * 100)/100;
+    document.getElementById("findBalanceStatistics").innerHTML = Math.round(findBalancePurposeGain / (delay/1000) * 100)/100;
     document.getElementById("totalPurposeGain").innerHTML = Math.round(totalPurposeGain / (delay/1000) * 100)/100;
-
+    
     //change scale based on purpose
     if(purpose >= 10 && operationNr === 0){
         purpose_scale.innerHTML = "A flea notices you and jumps onto your hair.";
