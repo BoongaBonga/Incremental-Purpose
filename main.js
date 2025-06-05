@@ -5,7 +5,7 @@ var totalPurposeGain = 0;
 var idleReflectionObj = {
   idleReflectionCount: 0,
   idleReflectionPrice: 10,
-  IdleReflectionPurposeGain: 0,
+  idleReflectionPurposeGain: 0,
 };
 //sharpen focus
 var sharpenFocusObj = {
@@ -328,14 +328,14 @@ window.setInterval(function () {
     idleReflectionObj.idleReflectionPurposeGain *
     (sharpenFocusObj.sharpenFocusCount * 0.5);
   //seek validation purpose
+
   seekValidationObj.seekValidationPurposeGain =
     idleReflectionObj.idleReflectionPurposeGain *
-    (seekValidationObj.seekValidationCount * 0.2);
-  seekValidationObj.seekValidationPurposeGain =
-    seekValidationObj.seekValidationPurposeGain +
+      (seekValidationObj.seekValidationCount * 0.2) +
     sharpenFocusObj.sharpenFocusPurposeGain *
       (seekValidationObj.seekValidationCount * 0.2);
   //total seek balance purpose
+  //NOT YET FINAL STILL PRETTY BAD BALANCING
   findBalanceObj.findBalancePurposeGain =
     (idleReflectionObj.idleReflectionPurposeGain +
       sharpenFocusObj.sharpenFocusPurposeGain +
@@ -455,3 +455,11 @@ window.setInterval(function () {
     operationNr = 11;
   }
 }, delay);
+
+//key presses
+document.addEventListener("keydown", function (event) {
+  console.log(event);
+  if (event.key === "s") {
+    save();
+  }
+});
