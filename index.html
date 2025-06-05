@@ -3,6 +3,12 @@
 </head>
 <body onload="load()">
   <div id="starcontainer"></div>
+  <!--settings-->
+  <button id="settingsButton" onclick="toggleSettings()">Settings</button>
+  <div id="settingsContainer">
+    <button id="saveSetting" onclick="save()">Save</button>
+    <button id="deleteSaveSetting" onclick="removeSave()">Delete save</button>
+  </div>
   <!--counter-->
   <p id="purposeCounter">
     <b>You have <span id="purpose">69420</span> purpose.</b>
@@ -109,13 +115,6 @@
       Buy for <span id="deepenResolvePriceDisplayID">1000</span> purpose (+40%
       find balance purpose)
     </p>
-  </div>
-
-  <!--settings-->
-  <button id="settingsButton" onclick="toggleSettings()">Settings</button>
-  <div id="settingsContainer">
-    <button id="saveSetting" onclick="save()">Save</button>
-    <button id="deleteSaveSetting" onclick="removeSave()">Delete save</button>
   </div>
   <script type="text/javascript" src="main.js"></script>
 </body>

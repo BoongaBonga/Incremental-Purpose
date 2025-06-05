@@ -41,14 +41,12 @@ button {
 }
 
 #settingsButton {
-  margin-top: 20vh;
   bottom: 0;
   left: 0;
   z-index: 3;
 }
 #settingsContainer {
   display: none;
-  bottom: 0;
   left: 0;
   z-index: 3;
 }
