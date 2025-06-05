@@ -1,64 +1,122 @@
-<head> <link rel="stylesheet" href="style.css"> </head>
-<body>
-    <div id="starcontainer"></div>
-<!--counter-->
-<p id="purposeCounter"><b>You have <span id="purpose">1e+100</span> purpose.</b></p>
-<!--statistics-->
-<div id="statistics">
+<head>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body onload="load()">
+  <div id="starcontainer"></div>
+  <!--counter-->
+  <p id="purposeCounter">
+    <b>You have <span id="purpose">69420</span> purpose.</b>
+  </p>
+  <!--settings-->
+  <button id="settingsButton" onclick="toggleSettings()">Settings</button>
+  <div id="settingsContainer">
+    <button id="saveSetting" onclick="save()">Save</button>
+    <button id="deleteSaveSetting" onclick="removeSave()">Delete save</button>
+  </div>
+  <!--statistics-->
+  <div id="statistics">
     <button id="statisticButton" onclick="statisticsDropdown()">\/</button>
     <strong id="statisticTopText">Statistics</strong>
     <div id="statisticsInfo">
-    <p id="statisticIdleReflection" class="statistic">Idle reflection: <span id="idleReflectionStatistics">0</span> purpose/s</p>
-    <p id="statisticSharpenFocus" class="statistic">Sharpen focus: <span id="sharpenFocusStatistics">0</span> purpose/s</p>
-    <p id="statisticSeekValidation"  class="statistic">Seek validation: <span id="seekValidationStatistics">0</span> purpose/s</p>
-    <p id="statisticFindBalance"  class="statistic">Find balance: <span id="findBalanceStatistics">0</span> purpose/s</p>
-    <p id="statisticTotal"  class="statistic">Total: <span id="totalPurposeGain">0</span> purpose/s</p>
+      <p id="statisticIdleReflection" class="statistic">
+        Idle reflection: <span id="idleReflectionStatistics">0</span> purpose/s
+      </p>
+      <p id="statisticSharpenFocus" class="statistic">
+        Sharpen focus: <span id="sharpenFocusStatistics">0</span> purpose/s
+      </p>
+      <p id="statisticSeekValidation" class="statistic">
+        Seek validation: <span id="seekValidationStatistics">0</span> purpose/s
+      </p>
+      <p id="statisticFindBalance" class="statistic">
+        Find balance: <span id="findBalanceStatistics">0</span> purpose/s
+      </p>
+      <p id="statisticTotal" class="statistic">
+        Total: <span id="totalPurposeGain">0</span> purpose/s
+      </p>
     </div>
-</div>
-<!--purpose scale-->
-<p><span id="purposeScale">Whispers of your existence echo in distant places, though the source remains unknown.</span></p>
-<div style="height: 12; width: 100;"></div>
-<!--purpose generation button-->
-<button id="gainPurpose" onclick="gainPurpose(1)">Gain purpose</button>
-<div style="height: 55;"></div>
-<!--improve yourself text-->
-<strong id="improveYourself">Improve yourself</strong>
-<div style="height: 20px;"></div>
-<!--idle reflection upgrade-->
-<div id="idleReflection">
-    <button id="idleReflectionButton" onclick="buyIdleReflection()">Idle reflection</button>
-    <button onclick="idleReflectionBuyMax()" id="idleReflectionBuyMax">Buy max</button>
-    <p id="idleReflectionPriceDisplay">Buy for <span id="idleReflectionPriceDisplayID">10</span> purpose (0.5 purpose/s)</p>
-</div>
-<div style="height: 15;"></div>
-<!--sharpen focus upgrade-->
-<div id="sharpenFocus">
-    <button id="sharpenFocusButton" onclick="buySharpenFocus()">Sharpen focus</button>
-    <button onclick="sharpenFocusBuyMax()" id="sharpenFocusBuyMax">Buy max</button>
-    <p id="sharpenFocusPriceDisplay">Buy for <span id="sharpenFocusPriceDisplayID">30</span> purpose (+50% Idle reflection effectiveness)</p>
-</div>
-<div style="height: 16;"></div>
-<!--seek validation upgrade-->
-<div id="seekValidation">
-    <button id="seekValidationButton" onclick="buySeekValidation()">Seek validation</button>
-    <button onclick="seekValidationBuyMax()" id="seekValidationBuyMax">Buy max</button>
-    <p id="seekValidationPriceDisplay">Buy for <span id="seekValidationPriceDisplayID">100</span> purpose (+20% all purpose)</p>
-</div>
-<div style="height: 60;"></div>
-<!--find you balance minigame-->
-<strong id="findYourBalanceTitle">Find your balance</strong>
-<p id="findYourBalanceTip">Click the button as close to the middle as possible</p>
-<div id="findYourBalance">
-    <input type="range" id="findYourBalanceSlider">
-</div>
-<button onclick="findBalance()" id="findYourBalanceButton">Find balance</button>
-<div style="height: 30px;"></div>
-<!--deepen resolve upgrade-->
-<div id="deepenResolve">
-    <button id="deepenResolveButton" onclick="buyDeepenResolve()">Deepen resolve</button>
-    <button id="deepenResolveBuyMax" onclick="deepenResolveBuyMax()">Buy max</button>
-    <p id="deepenResolvePriceDisplay">Buy for <span id="deepenResolvePriceDisplayID">1000</span> purpose (+40% find balance purpose)</p>
-</div>
+  </div>
+  <!--purpose scale-->
+  <p>
+    <span id="purposeScale"
+      >Whispers of your existence echo in distant places, though the source
+      remains unknown.</span
+    >
+  </p>
+  <div style="height: 12; width: 100"></div>
+  <!--purpose generation button-->
+  <button id="gainPurpose" onclick="gainPurpose(1)">Gain purpose</button>
+  <div style="height: 55"></div>
+  <!--improve yourself text-->
+  <strong id="improveYourself">Improve yourself</strong>
+  <div style="height: 20px"></div>
+  <!--idle reflection upgrade-->
+  <div id="idleReflection">
+    <button id="idleReflectionButton" onclick="buyIdleReflection()">
+      Idle reflection
+    </button>
+    <button onclick="idleReflectionBuyMax()" id="idleReflectionBuyMax">
+      Buy max
+    </button>
+    <p id="idleReflectionPriceDisplay">
+      Buy for <span id="idleReflectionPriceDisplayID">10</span> purpose (0.5
+      purpose/s)
+    </p>
+  </div>
+  <div style="height: 15"></div>
+  <!--sharpen focus upgrade-->
+  <div id="sharpenFocus">
+    <button id="sharpenFocusButton" onclick="buySharpenFocus()">
+      Sharpen focus
+    </button>
+    <button onclick="sharpenFocusBuyMax()" id="sharpenFocusBuyMax">
+      Buy max
+    </button>
+    <p id="sharpenFocusPriceDisplay">
+      Buy for <span id="sharpenFocusPriceDisplayID">30</span> purpose (+50% Idle
+      reflection effectiveness)
+    </p>
+  </div>
+  <div style="height: 16"></div>
+  <!--seek validation upgrade-->
+  <div id="seekValidation">
+    <button id="seekValidationButton" onclick="buySeekValidation()">
+      Seek validation
+    </button>
+    <button onclick="seekValidationBuyMax()" id="seekValidationBuyMax">
+      Buy max
+    </button>
+    <p id="seekValidationPriceDisplay">
+      Buy for <span id="seekValidationPriceDisplayID">100</span> purpose (+20%
+      all purpose)
+    </p>
+  </div>
+  <div style="height: 60"></div>
+  <!--find you balance minigame-->
+  <strong id="findYourBalanceTitle">Find your balance</strong>
+  <p id="findYourBalanceTip">
+    Click the button as close to the middle as possible
+  </p>
+  <div id="findYourBalance">
+    <input type="range" id="findYourBalanceSlider" />
+  </div>
+  <button onclick="findBalance()" id="findYourBalanceButton">
+    Find balance
+  </button>
+  <div style="height: 30px"></div>
+  <!--deepen resolve upgrade-->
+  <div id="deepenResolve">
+    <button id="deepenResolveButton" onclick="buyDeepenResolve()">
+      Deepen resolve
+    </button>
+    <button id="deepenResolveBuyMax" onclick="deepenResolveBuyMax()">
+      Buy max
+    </button>
+    <p id="deepenResolvePriceDisplay">
+      Buy for <span id="deepenResolvePriceDisplayID">1000</span> purpose (+40%
+      find balance purpose)
+    </p>
+  </div>
 
-<script type="text/javascript" src="main.js"> </script></body>
-<script type="text/javascript" src="main.js"> </script>
+  <script type="text/javascript" src="main.js"></script>
+</body>
+<script type="text/javascript" src="main.js"></script>

@@ -1,122 +1,147 @@
-body{
-    background-color: black;
-    color: white;
-    font-family: fangsong;
-    overflow: hidden;
+body {
+  background-color: black;
+  color: white;
+  font-family: fangsong;
+  overflow: hidden;
 }
-.star{
-    border-radius: 50%;
-    background-color: white;
-    position: absolute;
-    z-index: 1;
+.star {
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  z-index: 1;
+  opacity: 0.8;
 }
-button{
-    background-color: white;
-}
-
-#improveYourself{
-    display: none;
-    font-size: 20px;
-}
-#purposeCounter{
-    font-size: 25px; 
-    height: 9;
-}
-#gainPurpose{
-    font-size: 15px;
+button {
+  background-color: white;
 }
 
-#statistics{
-    position: absolute; right: 10px; top: 13; text-align: end;
+#improveYourself {
+  display: none;
+  font-size: 20px;
 }
-#statisticsTopText{
-    display: inline-block;
+#purposeCounter {
+  font-size: 25px;
+  height: 9;
 }
-#statisticsButton{
-    display: block;
-}
-.statistic{
-    margin-bottom: 0px; margin-top: 0px; visibility: visible;
-}
-
-#idleReflectionButton{
-    display: none;
-}
-#idleReflectionBuyMax{
-    display: none;
-}
-#idleReflectionPriceDisplay{
-    display: none;
-    margin-top: 4px; margin-bottom: 0px; margin-left: 10px;
-}
-#idleReflection{
-    height: 25; display: flex;
+#gainPurpose {
+  font-size: 15px;
 }
 
-#sharpenFocus{
-    height: 25; display: flex;
+#settingsButton {
+  bottom: 0;
+  left: 0;
+  position: fixed;
 }
-#sharpenFocusButton{
-    display: none;
-}
-#sharpenFocusBuyMax{
-    display: none;
-}
-#sharpenFocusPriceDisplay{
-    display: none;
-    margin-top: 4px;
-    margin-bottom: 0px;
-    margin-left: 10px;
+#settingsContainer {
+  display: none;
+  bottom: 0;
+  left: 0;
+  position: fixed;
 }
 
-#seekValidation{
-    height: 25; display: flex;
+#statistics {
+  position: absolute;
+  right: 10px;
+  top: 13;
+  text-align: end;
 }
-#seekValidationButton{
-    display: none;
+#statisticsTopText {
+  display: inline-block;
 }
-#seekValidationBuyMax{
-    display: none;
+#statisticsButton {
+  display: block;
 }
-#seekValidationPriceDisplay{
-    display: none;
-    margin-top: 4px;
-    margin-bottom: 0px;
-    margin-left: 10px;
-}
-
-#findYourBalance{
-    height: auto; display: flex;
-}
-#findYourBalanceTitle{
-    display: none;
-    font-size: 20px;
-}
-#findYourBalanceTip{
-    display: none;
-    margin-top: 4px;
-    margin-bottom: 0px;
-}
-#findYourbalanceSlider{
-    display: none;
-    margin-top: 20px;
-}
-#findYourBalanceButton{
-    display: none;
+.statistic {
+  margin-bottom: 0px;
+  margin-top: 0px;
+  visibility: visible;
 }
 
-#deepenResolve{
-    height: 25px; display: flex;
+#idleReflectionButton {
+  display: none;
 }
-#deepenResolveButton{
-    display: none;
+#idleReflectionBuyMax {
+  display: none;
 }
-#deepenResolveBuyMax{
-    display: none;
+#idleReflectionPriceDisplay {
+  display: none;
+  margin-top: 4px;
+  margin-bottom: 0px;
+  margin-left: 10px;
 }
-#deepenResolvePriceDisplay{
-    display: none;
-    margin-top: 4px;
-    margin-bottom: 0px;
-    margin-left: 10px;
+#idleReflection {
+  height: 25;
+  display: flex;
+}
+
+#sharpenFocus {
+  height: 25;
+  display: flex;
+}
+#sharpenFocusButton {
+  display: none;
+}
+#sharpenFocusBuyMax {
+  display: none;
+}
+#sharpenFocusPriceDisplay {
+  display: none;
+  margin-top: 4px;
+  margin-bottom: 0px;
+  margin-left: 10px;
+}
+
+#seekValidation {
+  height: 25;
+  display: flex;
+}
+#seekValidationButton {
+  display: none;
+}
+#seekValidationBuyMax {
+  display: none;
+}
+#seekValidationPriceDisplay {
+  display: none;
+  margin-top: 4px;
+  margin-bottom: 0px;
+  margin-left: 10px;
+}
+
+#findYourBalance {
+  height: auto;
+  display: flex;
+}
+#findYourBalanceTitle {
+  display: none;
+  font-size: 20px;
+}
+#findYourBalanceTip {
+  display: none;
+  margin-top: 4px;
+  margin-bottom: 0px;
+}
+#findYourbalanceSlider {
+  display: none;
+  margin-top: 20px;
+}
+#findYourBalanceButton {
+  display: none;
+}
+
+#deepenResolve {
+  height: 25px;
+  display: flex;
+}
+#deepenResolveButton {
+  display: none;
+}
+#deepenResolveBuyMax {
+  display: none;
+}
+#deepenResolvePriceDisplay {
+  display: none;
+  margin-top: 4px;
+  margin-bottom: 0px;
+  margin-left: 10px;
 }
