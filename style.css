@@ -1,7 +1,36 @@
+body{
+    background-color: black;
+    color: white;
+}
+button{
+    background-color: white;
+}
+
 #improveYourself{
     display: none;
     font-size: 20px;
 }
+#purposeCounter{
+    font-size: 25px; 
+    height: 9;
+}
+#gainPurpose{
+    font-size: 15px;
+}
+
+#statistics{
+    position: absolute; right: 10px; top: 13; text-align: end;
+}
+#statisticsTopText{
+    display: inline-block;
+}
+#statisticsButton{
+
+}
+.statistic{
+    margin-bottom: 0px; margin-top: 0px; visibility: visible;
+}
+
 #idleReflectionButton{
     display: none;
 }
@@ -10,6 +39,14 @@
 }
 #idleReflectionPriceDisplay{
     display: none;
+    margin-top: 4px; margin-bottom: 0px; margin-left: 10px;
+}
+#idleReflection{
+    height: 25; display: flex;
+}
+
+#sharpenFocus{
+    height: 25; display: flex;
 }
 #sharpenFocusButton{
     display: none;
@@ -23,6 +60,10 @@
     margin-bottom: 0px;
     margin-left: 10px;
 }
+
+#seekValidation{
+    height: 25; display: flex;
+}
 #seekValidationButton{
     display: none;
 }
@@ -34,6 +75,10 @@
     margin-top: 4px;
     margin-bottom: 0px;
     margin-left: 10px;
+}
+
+#findYourBalance{
+    height: auto; display: flex;
 }
 #findYourBalanceTitle{
     display: none;
@@ -50,6 +95,10 @@
 }
 #findYourBalanceButton{
     display: none;
+}
+
+#deepenResolve{
+    height: 25px; display: flex;
 }
 #deepenResolveButton{
     display: none;

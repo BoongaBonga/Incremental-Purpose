@@ -165,12 +165,12 @@ window.setInterval(function(){
     
     //change scale based on purpose
     if(purpose >= 10 && operationNr === 0){
-        purpose_scale.innerHTML = "A flea notices you and jumps onto your hair.";
+        purposeScale.innerHTML = "A flea notices you and jumps onto your hair.";
         
         operationNr = 1;
     }
     if(purpose >= 50 && operationNr === 1){
-        purpose_scale.innerHTML = "A bird briefly lands near you before flying away.";
+        purposeScale.innerHTML = "A bird briefly lands near you before flying away.";
         //add the idle purpose button
         document.getElementById("improveYourself").style.display = "block";
         document.getElementById("idleReflectionButton").style.display = "block";
@@ -179,29 +179,29 @@ window.setInterval(function(){
         operationNr = 2;
     }
     if(purpose >= 100 && operationNr === 2){
-        purpose_scale.innerHTML = "A stray cat brushes against your leg.";
+        purposeScale.innerHTML = "A stray cat brushes against your leg.";
         document.getElementById("sharpenFocusButton").style.display = "block";
         document.getElementById("sharpenFocusBuyMax").style.display = "block";
         document.getElementById("sharpenFocusPriceDisplay").style.display = "block";
         operationNr = 3;
     }
     if(purpose >= 500 && operationNr === 3){
-        purpose_scale.innerHTML = "A child looks at you, and then quickly loses interest.";
+        purposeScale.innerHTML = "A child looks at you, and then quickly loses interest.";
         operationNr = 4;
     }
     if(purpose >= 1000 && operationNr === 4){
-        purpose_scale.innerHTML = "A neighbor glances at you through their window, but then averts his gaze.";
+        purposeScale.innerHTML = "A neighbor glances at you through their window, but then averts his gaze.";
         document.getElementById("seekValidationButton").style.display = "block";
         document.getElementById("seekValidationBuyMax").style.display = "block";
         document.getElementById("seekValidationPriceDisplay").style.display = "block";
         operationNr = 5;
     }
     if(purpose >= 10000 && operationNr === 5){
-        purpose_scale.innerHTML = "A stranger pauses for a moment, sensing something familiar, then continues on without a second thought.";
+        purposeScale.innerHTML = "A stranger pauses for a moment, sensing something familiar, then continues on without a second thought.";
         operationNr = 6;
     }
     if(purpose >= 100000 && operationNr === 6){
-        purpose_scale.innerHTML = "Far away, your mother pauses while doing the dishes, a fleeting thought of you crossing her mind, though she can't quite recall why.";
+        purposeScale.innerHTML = "Far away, your mother pauses while doing the dishes, a fleeting thought of you crossing her mind, though she can't quite recall why.";
         document.getElementById("findYourBalanceTitle").style.display = "block";
         document.getElementById("findYourBalanceTip").style.display = "block";
         document.getElementById("findYourBalanceSlider").style.display = "block";
@@ -212,19 +212,19 @@ window.setInterval(function(){
         operationNr = 7;
     }
     if(purpose >= 1000000 && operationNr === 7){
-        purpose_scale.innerHTML = "Your mother sits down with an old photo album, her heart aching with a vague sense of loss. She pauses on a picture of you but quickly moves on.";
+        purposeScale.innerHTML = "Your mother sits down with an old photo album, her heart aching with a vague sense of loss. She pauses on a picture of you but quickly moves on.";
         operationNr = 8;
     }
     if(purpose >= 10000000 && operationNr === 8){
-        purpose_scale.innerHTML = "Strangers find themselves speaking your name in conversation, though they aren't sure where they heard it.";
+        purposeScale.innerHTML = "Strangers find themselves speaking your name in conversation, though they aren't sure where they heard it.";
         operationNr = 9;
     }
     if(purpose >= 100000000 && operationNr === 9){
-        purpose_scale.innerHTML = "Your name appears in a forgotten note, written long ago, though no one remembers why.";
+        purposeScale.innerHTML = "Your name appears in a forgotten note, written long ago, though no one remembers why.";
         operationNr = 10;
     }
     if(purpose >= 1000000000 && operationNr === 10){
-        purpose_scale.innerHTML = "Whispers of your existence echo in distant places, though the source remains unknown.";
+        purposeScale.innerHTML = "Whispers of your existence echo in distant places, though the source remains unknown.";
         operationNr = 11;
     }
 }, delay);
