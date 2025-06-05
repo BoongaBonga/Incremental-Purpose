@@ -1,6 +1,14 @@
 body{
     background-color: black;
     color: white;
+    font-family: fangsong;
+    overflow: hidden;
+}
+.star{
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    z-index: 1;
 }
 button{
     background-color: white;

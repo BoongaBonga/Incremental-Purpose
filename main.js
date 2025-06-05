@@ -63,7 +63,40 @@ window.setInterval(function(){
     }
 }, findBalanceSliderSpeed);
 
-
+//stars
+//funny stars
+function star(x, y, size, duration) {
+    const star = document.createElement("div");
+    star.classList.add("star");
+    star.style.width = star.style.height = size + "px";
+    star.style.left = x + "vw";
+    star.style.top = y + "vh";
+    star.opacity = 1;
+    star.dataset.duration = duration;
+    star.dataset.totalDuration = duration;
+    document.getElementById("starcontainer").appendChild(star);
+}
+function starFadeOut() {
+  let stars = document.querySelectorAll(".star");
+  for (let i = 0; i <= stars.length - 1; i++) {
+    if (Number(stars[i].dataset.duration) <= 0) {
+      stars[i].remove();
+    }
+    stars[i].dataset.duration = Number(stars[i].dataset.duration) - 20;
+    stars[i].style.opacity =
+      stars[i].dataset.duration / stars[i].dataset.totalDuration;
+  }
+}
+function starSpawn() {
+  if (Math.random() < 0.3) {
+    star(
+      Math.random() * 110 - 5,
+      Math.random() * 110 - 5,
+      Math.random() * 10,
+      Math.random() * 3000 + 500
+    );
+  }
+}
 
 //functions for buying purpose gain upgrade
 //buying idle reflection normal and max
@@ -141,6 +174,9 @@ function deepenResolveBuyMax(){
 
 //increase purpose counter every (delay)ms
 window.setInterval(function(){
+    //stars
+    starSpawn();
+    starFadeOut();
     //idle reflection purpose
     IdleReflectionPurposeGain = idleReflectionCount * (delay/2000);
     //sharpen focus purpose
