@@ -54,9 +54,24 @@ function gainPurpose(gain) {
   //increment purpose counter
   purpose = purpose + gain;
   if ((Math.floor(purpose * 100) / 100) % 1 === 0) {
-    purposeCounter.innerHTML = Math.floor(purpose * 100) / 100 + ".00";
+    purposeCounter.innerHTML = formatNumber(
+      Math.floor(purpose * 100) / 100 + ".00",
+      1e6
+    );
   } else {
-    purposeCounter.innerHTML = Math.floor(purpose * 100) / 100;
+    purposeCounter.innerHTML = formatNumber(
+      Math.floor(purpose * 100) / 100,
+      1e6
+    );
+  }
+}
+
+//function for large numbers
+function formatNumber(number, startingLength) {
+  if (Math.abs(number) >= startingLength) {
+    return number.toExponential(2);
+  } else {
+    return number.toString();
   }
 }
 
@@ -83,6 +98,7 @@ window.setInterval(function () {
 
 //stars
 //funny stars
+const starContainer = document.getElementById("starcontainer");
 function star(x, y, size, duration) {
   const star = document.createElement("div");
   star.classList.add("star");
@@ -127,7 +143,7 @@ function buyIdleReflection() {
       idleReflectionObj.idleReflectionPrice * 1.1
     );
     document.getElementById("idleReflectionPriceDisplayID").innerHTML =
-      idleReflectionObj.idleReflectionPrice;
+      formatNumber(idleReflectionObj.idleReflectionPrice, 1e6);
   }
 }
 function idleReflectionBuyMax() {
@@ -139,7 +155,7 @@ function idleReflectionBuyMax() {
     idleReflectionObj.idleReflectionCount++;
   }
   document.getElementById("idleReflectionPriceDisplayID").innerHTML =
-    idleReflectionObj.idleReflectionPrice;
+    formatNumber(idleReflectionObj.idleReflectionPrice, 1e6);
 }
 
 //buying sharpen focus normal and max
@@ -151,7 +167,7 @@ function buySharpenFocus() {
       sharpenFocusObj.sharpenFocusPrice * 1.15
     );
     document.getElementById("sharpenFocusPriceDisplayID").innerHTML =
-      sharpenFocusObj.sharpenFocusPrice;
+      formatNumber(sharpenFocusObj.sharpenFocusPrice, 1e6);
   }
 }
 function sharpenFocusBuyMax() {
@@ -163,7 +179,7 @@ function sharpenFocusBuyMax() {
     sharpenFocusObj.sharpenFocusCount++;
   }
   document.getElementById("sharpenFocusPriceDisplayID").innerHTML =
-    sharpenFocusObj.sharpenFocusPrice;
+    formatNumber(sharpenFocusObj.sharpenFocusPrice, 1e6);
 }
 
 //buying seekvalidation normal and max
@@ -176,7 +192,7 @@ function buySeekValidation() {
       seekValidationObj.seekValidationPrice * 1.2
     );
     document.getElementById("seekValidationPriceDisplayID").innerHTML =
-      seekValidationObj.seekValidationPrice;
+      formatNumber(seekValidationObj.seekValidationPrice, 1e6);
   }
 }
 function seekValidationBuyMax() {
@@ -188,7 +204,7 @@ function seekValidationBuyMax() {
     seekValidationObj.seekValidationCount++;
   }
   document.getElementById("seekValidationPriceDisplayID").innerHTML =
-    seekValidationObj.seekValidationPrice;
+    formatNumber(seekValidationObj.seekValidationPrice, 1e6);
 }
 
 //buying deepen resolve normal and max
@@ -201,7 +217,7 @@ function buyDeepenResolve() {
       deepenResolveObj.deepenResolvePrice * 1.35
     );
     document.getElementById("deepenResolvePriceDisplayID").innerHTML =
-      deepenResolveObj.deepenResolvePrice;
+      formatNumber(deepenResolveObj.deepenResolvePrice, 1e6);
   }
 }
 function deepenResolveBuyMax() {
@@ -213,7 +229,7 @@ function deepenResolveBuyMax() {
     deepenResolveObj.deepenResolveCount++;
   }
   document.getElementById("deepenResolvePriceDisplayID").innerHTML =
-    deepenResolveObj.deepenResolvePrice;
+    formatNumber(deepenResolveObj.deepenResolvePrice, 1e6);
 }
 
 //loading
@@ -225,6 +241,16 @@ function load() {
     keys = Object.keys(gameState);
     for (let key of keys) {
       window[key] = gameState[String(key)];
+      try {
+        document.getElementById(
+          key.replace("Obj", "") + "PriceDisplayID"
+        ).innerHTML = formatNumber(
+          gameState[String(key)][key.replace("Obj", "Price")],
+          1e6
+        );
+      } catch (e) {
+        console.log(e);
+      }
     }
   } else {
     alert("Save failed to load or no save found");
@@ -286,6 +312,14 @@ window.setInterval(function () {
   //stars
   starSpawn();
   starFadeOut();
+  starContainer.style.transform =
+    "rotate(" +
+    String(
+      Number(
+        starContainer.style.transform.replace("rotate(", "").replace("deg)", "")
+      ) + 0.1
+    ) +
+    "deg)";
   //idle reflection purpose
   idleReflectionObj.idleReflectionPurposeGain =
     idleReflectionObj.idleReflectionCount * (delay / 2000);
@@ -316,23 +350,33 @@ window.setInterval(function () {
   gainPurpose(totalPurposeGain);
 
   //change statistics
-  document.getElementById("idleReflectionStatistics").innerHTML =
+  document.getElementById("idleReflectionStatistics").innerHTML = formatNumber(
     Math.round(
       (idleReflectionObj.idleReflectionPurposeGain / (delay / 1000)) * 100
-    ) / 100;
-  document.getElementById("sharpenFocusStatistics").innerHTML =
+    ) / 100,
+    1e6
+  );
+  document.getElementById("sharpenFocusStatistics").innerHTML = formatNumber(
     Math.round(
       (sharpenFocusObj.sharpenFocusPurposeGain / (delay / 1000)) * 100
-    ) / 100;
-  document.getElementById("seekValidationStatistics").innerHTML =
+    ) / 100,
+    1e6
+  );
+  document.getElementById("seekValidationStatistics").innerHTML = formatNumber(
     Math.round(
       (seekValidationObj.seekValidationPurposeGain / (delay / 1000)) * 100
-    ) / 100;
-  document.getElementById("findBalanceStatistics").innerHTML =
+    ) / 100,
+    1e6
+  );
+  document.getElementById("findBalanceStatistics").innerHTML = formatNumber(
     Math.round((findBalanceObj.findBalancePurposeGain / (delay / 1000)) * 100) /
-    100;
-  document.getElementById("totalPurposeGain").innerHTML =
-    Math.round((totalPurposeGain / (delay / 1000)) * 100) / 100;
+      100,
+    1e6
+  );
+  document.getElementById("totalPurposeGain").innerHTML = formatNumber(
+    Math.round((totalPurposeGain / (delay / 1000)) * 100) / 100,
+    1e6
+  );
 
   //change scale based on purpose
   if (purpose >= 10 && operationNr === 0) {
