@@ -24,17 +24,16 @@ let deepenResolvePrice = 1000;
 let deepenResolvePurposeGain = 0;
 let operationNr = 0;
 const delay = 50;
-const statisticsClass = document.getElementsByClassName("statistic");
+const statisticsDiv = document.getElementById("statisticsInfo");
+const purposeCounter = document.getElementById("purpose");
 
 //MENU BUTTONS
 //statistics
 function statisticsDropdown(){
-    for(let i = 0; i < statisticsClass.length; i++){
-        if(statisticsClass[i].style.visibility === "hidden"){
-            statisticsClass[i].style.visibility = "visible";
-        } else{
-            statisticsClass[i].style.visibility = "hidden";
-        }
+    if(statisticsDiv.style.display === "none"){
+        statisticsDiv.style.display = "block";
+    }else{
+        statisticsDiv.style.display = "none";
     }
 }
 
@@ -44,7 +43,7 @@ function statisticsDropdown(){
 function gainPurpose(gain){
     //increment purpose counter
     purpose = purpose + gain;
-    
+    purposeCounter.innerHTML = Math.floor(purpose*100)/100;
 }
 
 //functions for find your balance minigame
@@ -153,8 +152,7 @@ window.setInterval(function(){
     findBalancePurposeGain = (IdleReflectionPurposeGain + sharpenFocusPurposeGain + seekValidationPurposeGain) * findBalanceValue;
     //total purpose
     totalPurposeGain = IdleReflectionPurposeGain + sharpenFocusPurposeGain + seekValidationPurposeGain + findBalancePurposeGain;
-    purpose = purpose + totalPurposeGain;
-    document.getElementById("purpose").innerHTML = Math.round(purpose);
+    gainPurpose(totalPurposeGain);
 
     //change statistics
     document.getElementById("idleReflectionStatistics").innerHTML = Math.round(IdleReflectionPurposeGain / (delay/1000) * 100)/100;
