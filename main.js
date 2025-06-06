@@ -53,17 +53,7 @@ function statisticsDropdown() {
 function gainPurpose(gain) {
   //increment purpose counter
   purpose = purpose + gain;
-  if ((Math.floor(purpose * 100) / 100) % 1 === 0) {
-    purposeCounter.innerHTML = formatNumber(
-      Number(Math.floor(purpose * 100) / 100 + ".00"),
-      1e6
-    );
-  } else {
-    purposeCounter.innerHTML = formatNumber(
-      Math.floor(purpose * 100) / 100,
-      1e6
-    );
-  }
+  purposeCounter.innerHTML = formatNumber(Math.floor(purpose), 1e6);
 }
 
 //function for large numbers
